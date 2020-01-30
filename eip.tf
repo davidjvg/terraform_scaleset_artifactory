@@ -48,20 +48,20 @@ resource "azurerm_public_ip" "publicip" {
 
 # Creación de una tarjeta de interfaz de red virtual
 
-resource "azurerm_network_interface" "nic" {
-    name                =   var.nic_name
-    location            =   var.location
-    resource_group_name =   azurerm_resource_group.vm_resource_group.name
-    network_security_group_id =   azurerm_network_security_group.vm_sg.id
-
-    ip_configuration {
-        name                          =   var.nic_ip_configuration_name
-        subnet_id                     =   azurerm_subnet.subnet.id
-        private_ip_address_allocation =   var.nic_ip_configuration_private_ip_address_allocation
-        public_ip_address_id          =   azurerm_public_ip.publicip.id
-    }
-
-    tags = {
-        environment =   var.tags_environment_nic
-    }
-}
+#resource "azurerm_network_interface" "nic" {
+#    name                =   var.nic_name
+#    location            =   var.location
+#    resource_group_name =   azurerm_resource_group.vm_resource_group.name
+#    network_security_group_id =   azurerm_network_security_group.vm_sg.id
+#
+#    ip_configuration {
+#        name                          =   var.nic_ip_configuration_name
+#        subnet_id                     =   azurerm_subnet.subnet.id
+#        private_ip_address_allocation =   var.nic_ip_configuration_private_ip_address_allocation
+#        public_ip_address_id          =   azurerm_public_ip.publicip.id
+#    }
+#
+#    tags = {
+#        environment =   var.tags_environment_nic
+#    }
+#}

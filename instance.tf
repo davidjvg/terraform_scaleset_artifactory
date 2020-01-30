@@ -4,7 +4,7 @@ resource "azurerm_lb" "artifactorylb" {
  resource_group_name = azurerm_resource_group.vm_resource_group.name
 
  frontend_ip_configuration {
-   name                 = var.frontend_ip_configuration
+   name                 = "PublicIPAddress"
    public_ip_address_id = azurerm_public_ip.publicip.id
  }
 
@@ -62,7 +62,7 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
   }
 
   storage_profile_os_disk {
-   name              =   var.storage_os_disk_name
+   name              =   ""
    caching           =   var.storage_os_disk_caching
    create_option     =   var.storage_os_disk_create_option
    managed_disk_type =   var.storage_os_disk_managed_disk_type
