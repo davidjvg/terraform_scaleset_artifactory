@@ -97,7 +97,7 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
   extension {
 
   #  location                = var.location
-    name                    = azurerm_virtual_machine_scale_set.artifactory.name
+    name                    = "test"
       #  virtual_machine_name = azurerm_virtual_machine.vm.name
     publisher            = "Microsoft.Azure.Extensions"
     type                 = "CustomScript"
