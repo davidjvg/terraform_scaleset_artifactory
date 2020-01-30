@@ -1,0 +1,1 @@
+# terraform_scaleset_artifactory
