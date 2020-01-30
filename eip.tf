@@ -12,7 +12,7 @@ resource "azurerm_resource_group" "vm_resource_group" {
  # red virtual
 resource "azurerm_virtual_network" "network" {
     name                =   var.network_name
-    address_space       =   var.network_address_space 
+    address_space       =   var.network_address_space
     location            =   var.location
     resource_group_name =   azurerm_resource_group.vm_resource_group.name
 
@@ -43,6 +43,18 @@ resource "azurerm_public_ip" "publicip" {
         environment =   var.tags_environment_publicip
     }
 }
+
+resource "azurerm_public_ip" "publicip_vm" {
+    name                         =   var.publicip_name_vm
+    location                     =   var.location
+    resource_group_name          =   azurerm_resource_group.vm_resource_group.name
+    allocation_method            =   var.publicip_allocation_method
+
+    tags = {
+        environment =   var.tags_environment_publicip
+    }
+}
+
 
 
 

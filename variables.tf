@@ -166,8 +166,15 @@ variable "network_address_space" {
 variable "publicip_name" {
   type = string
   description  = " ---- "
-  default  = "PublicIpArtifactory"
+  default  = "PublicIpSCArtifactory"
 }
+
+variable "domain_name" {
+  type = string
+  description  = " ---- "
+  default  = "babelci"
+}
+
 
 variable "publicip_allocation_method" {
   type = string
@@ -296,6 +303,17 @@ variable "application_port" {
    description = "The port that you want to expose to the external load balancer"
    default     = 8081
 }
+
+
+
+#second IP configuration
+
+variable "publicip_name_vm" {
+  type = string
+  description  = " ---- "
+  default  = "PublicIpArtifactory"
+}
+
 
 #Scale Set variables
 

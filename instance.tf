@@ -92,6 +92,21 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
       load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.bpepool.id]
       primary = true
     }
+
+
+#NIC publica para VMs
+    ip_configuration {
+      name                                   = "IPConfiguration_Public"
+      subnet_id                              = azurerm_subnet.subnet.id
+      application_security_group_ids         = azurerm_network_security_group.vm_sg.id
+
+    }
+      public_ip_address_configuration {
+          name = var.publicip_name_vm
+          idle_timeout = 4
+          domain_name_label = var.domain_name
+    }
+
   }
 
   extension {
