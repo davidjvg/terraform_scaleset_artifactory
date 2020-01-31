@@ -45,7 +45,7 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
  name                = var.scale_set_name
  location            = var.location
  resource_group_name = azurerm_resource_group.vm_resource_group.name
- upgrade_policy_mode = "Automatic"
+ upgrade_policy_mode = "Manual"
 
   sku {
    name     = var.vm_size
