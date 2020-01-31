@@ -70,7 +70,8 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
 
   os_profile {
      computer_name_prefix  =   var.env_name
-     admin_username =   var.admin_username
+     admin_username        =   var.admin_username
+     custom_data           = file("userdata.bash")
   }
 
   os_profile_linux_config {
@@ -84,8 +85,8 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
 
   network_profile {
     name    = "terraformnetworkprofile"
-    network_security_group_id =   azurerm_network_security_group.vm_sg.id
     primary = true
+    network_security_group_id =   azurerm_network_security_group.vm_sg.id
 
     ip_configuration {
       name                                   = "IPConfiguration"
@@ -111,22 +112,22 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
 
   }
 
-  extension {
+#  extension {
 
   #  location                = var.location
-    name                    = "test"
+#    name                    = "test"
       #  virtual_machine_name = azurerm_virtual_machine.vm.name
-    publisher            = "Microsoft.Azure.Extensions"
-    type                 = "CustomScript"
-    type_handler_version = "2.0"
+#    publisher            = "Microsoft.Azure.Extensions"
+#    type                 = "CustomScript"
+#    type_handler_version = "2.0"
 
-    protected_settings = <<PROT
-    {
-        "script": "${base64encode(file(var.scfile))}"
-    }
-    PROT
+#    protected_settings = <<PROT
+#    {
+#        "script": "${base64encode(file(var.scfile))}"
+#    }
+#    PROT
 
-    }
+#    }
 
 
 
