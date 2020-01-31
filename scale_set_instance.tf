@@ -45,7 +45,7 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
  name                = var.scale_set_name
  location            = var.location
  resource_group_name = azurerm_resource_group.vm_resource_group.name
- upgrade_policy_mode = "Manual"
+ upgrade_policy_mode = "Automatic"
 
   sku {
    name     = var.vm_size
@@ -84,6 +84,7 @@ resource "azurerm_virtual_machine_scale_set" "artifactory" {
 
   network_profile {
     name    = "terraformnetworkprofile"
+    network_security_group_id =   azurerm_network_security_group.vm_sg.id
     primary = true
 
     ip_configuration {
