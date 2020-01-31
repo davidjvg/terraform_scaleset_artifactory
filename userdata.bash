@@ -23,7 +23,7 @@ sudo apt install -y ansible
 
 git clone https://github.com/jacky9595/ansible-artifactory.git
 
-sudo mv /var/lib/waagent/custom-script/download/0/ansible-artifactory /home/ubuntu
+sudo mv /ansible-artifactory /home/ubuntu
 sudo chown ubuntu:ubuntu -R /home/ubuntu/ansible-artifactory
 cd /home/ubuntu/ansible-artifactory/
 ansible-playbook playbook-artifactory.yml
